@@ -5,6 +5,21 @@
     box-shadow: var(--box-shadow);
 
     min-height: 50rem;
+
+    //you cannot use css variables plugged into media queries, so you have to use sass variables - 
+    //this is similar to how with a linear gradient background image you can only blug SASS variables into rgba() color selector 
+    //if you want opacity to be added
+
+    //in fact you can mix both sass and css variables
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        max-width: 100%;
+        width: 100%;
+    }
     
 }
 
@@ -15,6 +30,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: $bp-xs) {
+        flex-wrap: wrap;
+        height: 10rem;
+    }
+    
 }
 
 .content {
@@ -23,6 +44,10 @@
     align-items: stretch;
 
     background-color: blue;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
 
 }
 
@@ -43,10 +68,20 @@
 }
 
 .detail {
+    font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
-    border-bottom: var(--line); 
+    border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+
 }
 
 .description {
@@ -56,13 +91,21 @@
 
     margin-right: 4.5rem;
     padding: 3rem;
+    @media only screen and (max-width: $bp-medium) {
+        margin-right: 2rem;
+        padding: 2rem;
+    }
 
-    font-size: 1.4rem;
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
     
 }
 
 .user-reviews {
-    background-color: darkcyan;
-
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
